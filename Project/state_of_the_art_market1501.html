@@ -1,0 +1,382 @@
+<style type="text/css">
+    *.elegant {
+        margin-left: 10px;
+        margin-right: 10px;
+        letter-spacing: 0.1px;
+        word-spacing: 0.1px;
+        line-height: 1.2em;
+        text-indent: 0px;
+        text-align: justify;
+    }
+</style>
+<p class="elegant"><font size=6><strong>State of the art on the Market-1501 dataset</strong></font></p> 
+<p class="elegant">In this page, will summarize the state-of-the-art methods on Market-1501 dataset. We will report both mAP and rank-1, 5, 10, 20 accuracies. Note that this may not be the only performance measurement. Other metrics, such as recognition time, are also important. </p> 
+<p class="elegant">When CMC curves are used in the respective paper, we roughly estimate the numbers and fill in the blanks. The authors may feel free to contact me with the accurate numbers. Priorities are given to papers whose codes are published. Should you have any inquery, please contact me at liangzheng06@gmail.com.</p> 
+<p class="elegant">
+<table CellSpacing=1 WIDTH=100% border=1 cellpadding="0" >
+    <tr>
+    <td width="35%" rowspan ="2" style="text-align: center"><strong>Reference</strong></td> <td width="30%" colspan="7" style="text-align: center"><strong>Market-1501</strong></td> <td width="30%" rowspan="2" style="text-align: center"><strong>Notes</strong></td> 
+    </tr>
+    <tr>
+        <td>rank-1</td><td>rank-5</td><td>rank-10</td><td>rank-20</td><td>rank-30</td><td>rank-50</td><td>mAP</td>
+    </tr>
+    <tr>
+    <td rowspan ="8">"Scalable person re-identification: a benchmark", Liang Zheng, Liyue Shen, Lu Tian, Shengjin Wang, Jingdong Wang, Qi Tian, ICCV 2015</td> <td>8.28</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>2.23</td> <td rowspan ="1">gBiCov [1], Euclidean distance, single query</td> 
+    </tr>
+
+    <tr>
+        <td>9.62</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>2.72</td><td rowspan ="1">HistLBP [2], Euclidean distance, single query. Super thanks to Mengran Gou for sending us the evaluation results</td>
+    </tr>
+    <tr>
+        <td>26.07</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>7.75</td><td rowspan ="1">LOMO [3], Euclidean distance, single query</td>
+    </tr>
+    <tr>
+        <td>35.84</td><td>52.40</td><td>60.33</td><td>67.64</td><td>71.88</td><td>75.80</td><td>14.75</td><td rowspan ="1">BoW, Euclidean distance, single query</td>
+    </tr>
+    <tr>
+        <td>44.36</td><td>60.24</td><td>66.48</td><td>73.25</td><td>76.19</td><td>79.69</td><td>19.42</td><td rowspan ="1">BoW, Euclidean distance, multiple query</td>
+    </tr>
+    <tr>
+        <td>34.00</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>15.66</td><td rowspan ="1">BoW + LMNN, single query</td>
+    </tr>
+    <tr>
+        <td>38.21</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>17.05</td><td rowspan ="1">BoW + ITML, single query</td>
+    </tr>
+    <tr>
+        <td>44.42</td><td>63.90</td><td>72.18</td><td>78.95</td><td>82.51</td><td>87.05</td><td>20.76</td><td rowspan ="1">BoW + KISSME, single query</td>
+    </tr>
+	
+    <tr>
+    <td rowspan ="2">"Person re-identification: Past, Present and Future", Liang Zheng, Yi Yang, Alexander Hauptmann, Arxiv 2016</td> <td>55.49</td><td>76.28</td><td>83.55</td><td>88.98</td><td>91.72</td><td>93.97</td><td>32.36</td> <td rowspan ="1">AlexNet identification model, using FC7 (4,096-dim) and Euclidean distance for testing, single query. This method is also used in [4,5]</td> 
+    </tr>
+    <tr>
+        <td>73.90</td><td>87.68</td><td>91.54</td><td>94.80</td><td>96.02</td><td>97.21</td><td>47.78</td><td rowspan ="1">ResNet-50 identification model, using Pool5 (2,048-dim) and Euclidean distance for testing, single query</td>
+    </tr>
+	
+    <tr>
+    <td colspan ="9" style="text-align: center"> <strong>State of the art in Supervised Learning</strong></td>  
+    </tr>
+    <tr>
+    <td rowspan ="1">"Multiregion Bilinear Convolutional Neural Networks for Person Re-Identification", Evgeniya Ustinova, Yaroslav Ganin, Victor Lempitsky, AVSS 2017.</td> <td>66.36</td> <td>85.01</td> <td>90.17</td><td>-</td><td>-</td><td>-</td><td>41.17</td><td>Multiregion Bilinear DML, single query. </td>
+    </tr>
+    <tr>
+    <td>"Scalable Metric Learning via Weighted Approximate Rank Component Analysis", Cijo Jose, Fran&ccedil;ois Fleuret, ECCV 2016</td> <td>45.16</td> <td>68.12</td> <td>76</td><td>84</td><td>87</td><td>-</td><td>-</td> <td>Use the baseline BoW descriptor and the proposed WARCA metric learning method.</td>
+    </tr>
+    <tr>
+    <td>"A Comprehensive Evaluation and Benchmark for Person Re-Identification: Features, Metrics, and Datasets", Srikrishna Karanam, Mengran Gou, Ziyan Wu,  Angels Rates-Borras, Octavia Camps, Richard J. Radke, ArXiv 2016</td> <td>46.5</td> <td>71.1</td> <td>79.9</td><td>86.9</td><td>-</td><td>-</td><td>-</td> <td>HistLBP+kLFDA. Single query.</td>
+    </tr>
+    <tr>
+    <td>"Temporal Model Adaptation for Person Re-Identification", Niki Martinel, Abir Das, Christian Micheloni, Amit K. Roy-Chowdhury, ECCV 2016</td> <td>47.92</td> <td>-</td> <td>-</td><td>-</td><td>-</td><td>-</td><td>22.31</td> <td>Using 13.58% of the labeled data. Single query.</td>
+    </tr>
+    <tr>
+    <td>"Deep Linear Discriminant Analysis on Fisher Networks: A Hybrid Architecture for Person Re-identification", Lin Wu, Chunhua Shen, Anton van den Hengel, ArXiv 2016</td> <td>48.15</td> <td>-</td> <td>-</td><td>-</td><td>-</td><td>-</td><td>29.94</td> <td>Combines Fisher vector and deep neural network. Not sure whether multiple queries are used.</td>
+    </tr>
+    <tr>
+    <td rowspan ="2">"Learning a Discriminative Null Space for Person Re-identification", Li Zhang, Tao Xiang, Shaogang Gong, CVPR 2016.</td> <td>55.43</td> <td>-</td> <td>-</td><td>-</td><td>-</td><td>-</td><td>29.87</td><td>LOMO+Discriminative Null Space, single query. </td>
+    </tr>
+    <tr>
+        <td>71.56</td> <td>-</td> <td>-</td><td>-</td><td>-</td><td>-</td><td>46.03</td><td>Both multiple query (MQ) and score-level feature fusion are used.</td>
+    </tr>
+	<tr>
+	    <td>"Similarity Learning with Spatial Constraints for Person Re-identification", Dapeng Chen, Zejian Yuan, Badong Chen, Nanning Zheng, CVPR 2016</td> <td>51.90</td> <td>-</td> <td>-</td><td>-</td><td>-</td><td>-</td><td>26.35</td> <td>Extract HSV, LAB, HOG, and SILTP features from patches, and use the proposed SCSP method. Single query.</td>
+	</tr>
+    <tr>
+    <td>"PersonNet: Person Re-identification with Deep Convolutional Neural Networks", Lin Wu, Chunhua Shen, Anton van den Hengel, ArXiv 2016.</td> <td>37.21</td> <td>-</td> <td>-</td><td>-</td><td>-</td><td>-</td><td>18.57</td><td>Use single query. Similarity between boxes is learnt end-to-end through a deep network. </td>
+    </tr>
+    <tr>
+    <td>"End-to-End Comparative Attention Networks for Person Re-identification", Hao Liu, Jiashi Feng, Meibin Qi, Jianguo Jiang, Shuicheng Yan, ArXiv 2016.</td> <td>48.24</td> <td>-</td> <td>-</td><td>-</td><td>-</td><td>-</td><td>24.43</td><td>Use single query. Features are learned by the Comparative Attention Network </td>
+    </tr>
+    <tr>
+    <td rowspan ="2">"Deep Attributes Driven Multi-Camera Person Re-identification", Chi Su, Shiliang Zhang, Junliang Xing, Wen Gao, Qi Tian, ECCV 2016.</td> <td>39.4</td> <td>-</td> <td>-</td><td>-</td><td>-</td><td>-</td><td>19.6</td><td>single query. </td>
+    </tr>
+	    <tr>
+        <td>49.0</td> <td>-</td> <td>-</td><td>-</td><td>-</td><td>-</td><td>25.8</td><td>Multiple query.</td>
+    </tr>
+    <tr>
+    <td rowspan ="2">"Multi-Scale Triplet CNN for Person Re-Identification", Jiawei Liu, Zheng-Jun Zha, Qi Tian, Dong Liu, Ting Yao, Qiang Ling, Tao Mei, A 2016.</td> <td>45.1</td> <td>70.1</td> <td>78.4</td><td>-</td><td>88.7</td><td>-</td><td>-</td><td>single query. Use a triplet loss CNN model with multi-scale improvement. </td>
+    </tr>
+    <tr>
+        <td>55.4</td> <td>78.9</td> <td>85.6</td><td>-</td><td>93.7</td><td>-</td><td>-</td><td>Multiple query</td>
+    </tr>
+    <tr>
+    <td>"Learning Deep Embeddings with Histogram Loss", Evgeniya Ustinova and Victor Lempitsky, NIPS 2016.</td> <td>59.47</td> <td>80.73</td> <td>86.94</td><td>91.09</td><td>-
+</td><td>-</td><td>-</td><td>It seems the single query mode is chosen. A previously introduced deep metric learning framework is adopted, but with new loss functions.  </td>
+    </tr>
+    <tr>
+    <td>"A Siamese Long Short-Term Memory Architecture for Human Re-Identification", Rahul Rama Varior, Bing Shuai, Jiwen Lu, Dong Xu, Gang Wang, ECCV 2016.</td> <td>61.6</td> <td>-</td> <td>-</td><td>-</td><td>-</td><td>-</td><td>35.3</td><td>Use multiple queries. The LSTM model processes image regions sequentially. </td>
+    </tr>
+	<tr>
+    <td rowspan ="2">"Gated Siamese Convolutional Neural Network Architecture for Human Re-Identification", Rahul Rama Varior, Mrinal Haloi, Gang Wang, ECCV 2016.</td> <td>65.88</td> <td>-</td> <td>-</td><td>-</td><td>-</td><td>-</td><td>39.55</td><td>single query. Feature learned by the Gated Siamese CNN.</td>
+    </tr>
+
+    <tr>
+        <td>76.04</td> <td>-</td> <td>-</td><td>-</td><td>-</td><td>-</td><td>48.45</td><td>Multiple query</td>
+    </tr>
+
+	<tr>
+    <td rowspan ="2">"Point to Set Similarity Based Deep Feature Learning for Person Re-identification", Sanping Zhou, Jinjun Wang, Jiayun Wang, Yihong Gong, Nanning Zheng, CVPR 2017.</td> <td>70.72</td> <td>-</td> <td>-</td><td>-</td><td>-</td><td>-</td><td>44.27</td><td>single query. The pairwise loss, triplet loss and a regularizor are jointly optimzed in the loss function.</td>
+    </tr>
+
+    <tr>
+        <td>85.78</td> <td>-</td> <td>-</td><td>-</td><td>-</td><td>-</td><td>55.73</td><td>Multiple query</td>
+    </tr>
+
+
+	<tr>
+    <td rowspan ="2">"Person Re-Identification by Camera Correlation Aware Feature Augmentation", Ying-Cong Chen, Xiatian Zhu, Wei-Shi Zheng, Jian-Huang Lai, TPAMI 2017.</td> <td>71.8</td> <td>-</td> <td>-</td><td>-</td><td>-</td><td>-</td><td>45.5</td><td>single query. Use CRAFT-MFA+LOMO</td>
+    </tr>
+    <tr>
+        <td>79.7</td> <td>-</td> <td>-</td><td>-</td><td>-</td><td>-</td><td>54.3</td><td>Multiple query</td>
+    </tr>
+
+    <tr>
+    <td rowspan ="2">"Consistent-Aware Deep Learning for Person Re-identification in a Camera Network, Ji Lin, Liangliang Ren, Jiwen Lu, Jianjiang Feng, Jie Zhou, CVPR 2017.</td> <td>73.84</td> <td>-</td> <td>-</td><td>-</td><td>-</td><td>-</td><td>47.11</td><td>single query. Pairwise similarities are considered across multiple cameras for samples in a batch.</td>
+    </tr>
+    <tr>
+        <td>80.85</td> <td>-</td> <td>-</td><td>-</td><td>-</td><td>-</td><td>55.58</td><td>Multiple query</td>
+    </tr>	
+
+    <tr>
+    <td rowspan ="2">"Looking Beyond Appearances: Synthetic Training Data for Deep CNNs in Re-identification", Igor Barros Barbosa, Marco Cristani, Barbara Caputo, Aleksander Rognhaugen and Theoharis Theoharis, Arxiv 2017.</td> <td>73.87</td> <td>88.03</td> <td>92.22</td><td>95.07</td><td>96.20</td><td>97.39</td><td>47.89</td><td>single query. Use SOMAnet and Market1501 as training set.</td>
+    </tr>
+    <tr>
+        <td>81.29</td> <td>92.61</td> <td>95.31</td><td>97.12</td><td>97.68</td><td>98.43</td><td>56.98</td><td>Multiple query</td>
+    </tr>
+
+    <tr>
+    <td rowspan ="1">"Spindle Net: Person Re-identification with Human Body Region Guided Feature Decomposition and Fusion", Haiyu Zhao, Maoqing Tian, Shuyang Sun, Jing Shao, Junjie Yan, Shuai Yi, Xiaogang Wang, Xiaoou Tang, CVPR 2017.</td> <td>76.9</td> <td>91.5</td> <td>94.6</td><td>96.7</td><td>-</td><td>-</td><td>-</td><td>single query. CPM is trained on MPII for pose estimation and part localization.</td>
+    </tr>
+
+    <tr>
+    <td>"Re-ranking Person Re-identification with k-reciprocal Encoding", Zhun Zhong, Liang Zheng, Donglin Cao and Shaozi Li, CVPR 2017.</td> <td>77.11</td> <td>-</td> <td>-</td><td>-</td><td>-
+</td><td>-</td><td>63.63</td><td>Single query. Re-ranking is performed. </td>
+    </tr>
+
+    <tr>
+    <td>"Pose Invariant Embedding for Deep Person Re-identification", Liang Zheng, Yujia Huang, Huchuan Lu, and Yi Yang, Arxiv 2017.</td> <td>79.33</td> <td>90.76</td> <td>94.41</td><td>96.52</td><td>-
+</td><td>-</td><td>55.95</td><td>Single query. The PIE descriptor and kissme is used. </td>
+    </tr>
+	
+	<tr>
+    <td rowspan ="2">"Unlabeled Samples Generated by GAN Improve the Person Re-identification Baseline in vitro", Zhedong Zheng, Liang Zheng, Yi Yang, ICCV 2017.</td> <td>78.06</td> <td>-</td> <td>-</td><td>-</td><td>-</td><td>-</td><td>56.23</td><td>single query. GAN images are used in the ResNet baseline.</td>
+    </tr>
+    <tr>
+        <td>85.12</td> <td>-</td> <td>-</td><td>-</td><td>-</td><td>-</td><td>68.52</td><td>Multiple query</td>
+    </tr>
+	
+	<tr>
+    <td rowspan ="2">"A Discriminatively Learned CNN Embedding for Person Re-identification", Zhedong Zheng, Liang Zheng, Yi Yang, ACM Transactions on Multimedia Computing, Communications, and Applications (TOMM), 2017.</td> <td>79.51</td> <td>90.91</td> <td>94.09</td><td>96.23</td><td>97.33</td><td>98.25</td><td>59.87</td><td>single query. Identification and Verification losses are used in a siamese network based on ResNet-50.</td>
+    </tr>
+    <tr>
+        <td>85.84</td> <td>94.54</td> <td>96.41</td><td>97.51</td><td>98.07</td><td>98.81</td><td>70.33</td><td>Multiple query</td>
+    </tr>
+
+
+	<tr>
+    <td rowspan ="2">"Learning Deep Context-aware Features over Body and Latent Parts for Person Re-identification", Dangwei Li, Xiaotang Chen, Zhang Zhang, Kaiqi Huang, CVPR 2017</td> <td>80.31</td> <td>-</td> <td>-</td><td>-</td><td>-</td><td>-</td><td>57.53</td><td>single query. Latent body parts are discovered by the spatial transformer network instead of rigid partitioning.</td>
+    </tr>
+    <tr>
+        <td>86.79</td> <td>-</td> <td>-</td><td>-</td><td>-</td><td>-</td><td>66.70</td><td>Multiple query</td>
+    </tr>
+
+
+	<tr>
+    <td rowspan ="1">"Deeply-Learned Part-Aligned Representations for Person Re-Identification", Liming Zhao, Xi Li, Jingdong Wang, Yueting Zhuang, ICCV 2017.</td> <td>81.0</td> <td>-</td> <td>-</td><td>-</td><td>-</td><td>-</td><td>63.4</td><td>single query.  Body parts are detected from feature maps and their respective features are concatenated later.</td>
+    </tr>
+
+	<tr>
+    <td rowspan ="2">"Scalable Person Re-identification on Supervised Smoothed Manifold", Song Bai, Xiang Bai, Qi Tian, CVPR 2017.</td> <td>82.21</td> <td>-</td> <td>-</td><td>-</td><td>-</td><td>-</td><td>68.80</td><td>single query. IDE+re-ranking.</td>
+    </tr>
+    <tr>
+        <td>88.18</td> <td>-</td> <td>-</td><td>-</td><td>-</td><td>-</td><td>76.18</td><td>Multiple query</td>
+    </tr>	
+
+	<tr>
+    <td rowspan ="1">"Divide and Fuse: A Re-ranking Approach for Person Re-identification", Rui Yu, Zhichao Zhou, Song Bai, Xiang Bai, BMVC 2017.</td> <td>82.30</td> <td>-</td> <td>-</td><td>-</td><td>-</td><td>-</td><td>72.42</td><td>single query. Features are divided into sub-vectors before re-encoded into a new vector. The new vectors are fused into one vector for ranking.</td>
+    </tr>
+	
+    <tr>
+    <td>"SVDNet for Pedestrian Retrieval", Yifan Sun, Liang Zheng, Weijian Deng, Shengjin Wang, ICCV 2017.</td> <td>82.3</td> <td>-</td> <td>-</td><td>-</td><td>-
+</td><td>-</td><td>62.1</td><td>Single query. 1,024-dim pool5 feature from svdnet is used. </td>
+    </tr>
+
+    <tr>
+    <td>"Pose-driven Deep Convolutional Model for Person Re-identification", Chi Su, Jianing Li, Shiliang Zhang, Junliang Xing, Wen Gao, Qi Tian, ICCV 2017.</td> <td>84.14</td> <td>92.73</td> <td>94.92</td><td>96.82</td><td>-</td><td>-</td><td>63.41</td><td>Single query. Human part is discovered with pose models. Local and Global images are used for feature learning.</td>
+    </tr>
+	
+	<tr>
+    <td rowspan ="2">"Deep Transfer Learning for Person Re-identification", Mengyue Geng, Yaowei Wang, Tao Xiang, Yonghong Tian, Arxiv 2016.</td> <td>83.7</td> <td>-</td> <td>-</td><td>-</td><td>-</td><td>-</td><td>65.5</td><td>single query. Identification and Verification losses are used in a siamese network based on GoogleNet.</td>
+    </tr>
+    <tr>
+        <td>89.6</td> <td>-</td> <td>-</td><td>-</td><td>-</td><td>-</td><td>73.8</td><td>Multiple query</td>
+    </tr>	
+	
+    <td>"Improving Person Re-identification by Attribute and Identity Learning", Yutian Lin, Liang Zheng, Zhedong Zheng, Yu Wu and Yi Yang, Arxiv 2017.</td> <td>84.29</td><td>93.20</td> <td>95.19</td><td>97.00</td><td>-</td><td>-</td><td>64.67</td><td>Single query. Attributes and ID classification are jointly learning. </td>
+    </tr>
+	
+	<tr>
+    <td rowspan ="4">"Pedestrian Alignment Network for Person Re-identification", Liang Zheng, Zhedong Zheng, Yi Yang, Arxiv 2017.</td> <td>82.81</td> <td>-</td> <td>-</td><td>-</td><td>-</td><td>-</td><td>63.35</td><td>single query. Pedestrians are aligned by the Spatial Transformer Network. Results could be higher when fine-tuning on the GAN model [7].</td>
+    </tr>
+    <tr>
+        <td>85.78</td> <td>93.38</td> <td>-</td><td>-</td><td>-</td><td>-</td><td>76.56</td><td>Single query + re-ranking [6]</td>
+    </tr>
+    <tr>
+        <td>88.18</td> <td>-</td> <td>-</td><td>-</td><td>-</td><td>-</td><td>71.72</td><td>Multiple query</td>
+    </tr>
+    <tr>
+        <td>89.79</td> <td>-</td> <td>-</td><td>-</td><td>-</td><td>-</td><td>83.79</td><td>Multiple query + re-ranking [6]</td>
+    </tr>
+
+	<tr>
+    <td rowspan ="1">"Deep Spatial Feature Reconstruction for Partial Person Re-identification: Alignment-free Approach", Lingxiao He, Jian Liang, Haiqing Li, and Zhenan Sun, CVPR 2018.</td> <td>83.58</td> <td>-</td> <td>-</td><td>-</td><td>-</td><td>-</td><td>64.25</td><td>single query. Deep Spatial feature Reconstruction (DSR) is further developed to avoid explicit alignment..</td>
+    </tr>
+
+	
+	<tr>
+    <td rowspan ="4">"Person re-identification by deep joint learning of multi-loss classification", Wei Li, Xiatian Zhu, and Shaogang Gong, IJCAI 2017.</td> <td>83.9</td> <td>-</td> <td>-</td><td>-</td><td>-</td><td>-</td><td>64.4</td><td>single query. Stripes and global images are jointly considered in a classification CNN network with multiple streams.</td>
+    </tr>
+    <tr>
+        <td>88.8</td> <td>-</td> <td>-</td><td>-</td><td>-</td><td>-</td><td>72.9</td><td>Single query + re-ranking [6]</td>
+    </tr>
+    <tr>
+        <td>85.1</td> <td>-</td> <td>-</td><td>-</td><td>-</td><td>-</td><td>65.5</td><td>single query, 4 body parts</td>
+    </tr>
+    <tr>
+        <td>89.7</td> <td>-</td> <td>-</td><td>-</td><td>-</td><td>-</td><td>74.5</td><td>Multiple query, 4 body parts</td>
+    </tr>
+	
+	<tr>
+    <td rowspan ="4">"In Defense of the Triplet Loss for Person Re-Identification", Alexander Hermans, Lucas Beyer
+and Bastian Leibe, Arxiv 2017.</td> <td>84.92</td> <td>94.21</td> <td>-</td><td>-</td><td>-</td><td>-</td><td>69.14</td><td>single query. The triplet-loss based network is fine-tuned. Image size: 256x128. The last layer in ResNet is replaced with one 1,024-dim layer and one 128-dim layer. Batch normalization is used as well.</td>
+    </tr>
+    <tr>
+        <td>86.67</td> <td>93.38</td> <td>-</td><td>-</td><td>-</td><td>-</td><td>81.07</td><td>Single query + re-ranking [6]</td>
+    </tr>
+    <tr>
+        <td>90.53</td> <td>96.29</td> <td>-</td><td>-</td><td>-</td><td>-</td><td>76.42</td><td>Multiple query</td>
+    </tr>
+    <tr>
+        <td>91.75</td> <td>95.78</td> <td>-</td><td>-</td><td>-</td><td>-</td><td>87.18</td><td>Multiple query + re-ranking [6]</td>
+    </tr>
+
+
+<tr>
+    <td rowspan ="2">"CamStyle Augmentation", Zhun Zhong, Liang Zheng, Zhedong Zheng, Shaozi Li
+, Yi Yang, CVPR 2018.</td> <td>88.12</td> <td>-</td> <td>-</td><td>-</td><td>-</td><td>-</td><td>68.72</td><td>single query. A new data augmentation approach which transfers images from one camera to the style of another camera.</td>
+    </tr>
+    <tr>
+        <td>89.49</td> <td>-</td> <td>-</td><td>-</td><td>-</td><td>-</td><td>71.55</td><td>Re-ranking.</td>
+    </tr>
+
+	<tr>
+    <td rowspan ="2">"Deep Mutual Learning", Ying Zhang, Tao Xiang, Timothy Hospedales, Huchuan Lu, CVPR 2018.</td> <td>87.73</td> <td>-</td> <td>-</td><td>-</td><td>-</td><td>-</td><td>68.83</td><td>single query. Two MoblieNets learn from each other, and the average re-ID results of the two individual networks is reported.</td>
+    </tr>
+    <tr>
+        <td>91.66</td> <td>-</td> <td>-</td><td>-</td><td>-</td><td>-</td><td>77.14</td><td>multiple query</td>
+    </tr>
+
+	<tr>
+    <td rowspan ="2">"A Pose-Sensitive Embedding for Person Re-Identification with Expanded Cross Neighborhood Re-Ranking", M. Saquib Sarfraz, Arne Schumann, Andreas Eberle, Rainer Stiefelhagen, CVPR 2018.</td> <td>87.7</td> <td>-</td> <td>-</td><td>-</td><td>-</td><td>-</td><td>69.0</td><td>single query. Camera view and body joints are integrated in the network. </td>
+    </tr>
+    <tr>
+        <td>90.3</td> <td>-</td> <td>-</td><td>-</td><td>-</td><td>-</td><td>84.0</td><td>single query + ECN (Expanded Cross Neighborhood) re-ranking</td>
+    </tr>
+	
+   <tr>
+    <td rowspan ="2">"Random Erasing Data Augmentation", Zhun Zhong, Liang Zheng, Guoliang Kang, Shaozi Li, Yi Yang, Arxiv 2017.</td> <td>87.08</td> <td>-</td> <td>-</td><td>-</td><td>-</td><td>-</td><td>71.31</td><td>single query. SVDNet + random erasing data augmentation.</td>
+
+    </tr>
+    <tr>
+        <td>89.13</td> <td>-</td> <td>-</td><td>-</td><td>-</td><td>-</td><td>83.93</td><td>Re-ranking is used on the rank list obtained by single query</td>
+    </tr>
+
+   <tr>
+    <td rowspan ="1">"Features for Multi-Target Multi-Camera Tracking and Re-Identification", Ergys Ristani, Carlo Tomasi, CVPR 2018.</td> <td>89.46</td> <td>-</td> <td>-</td><td>-</td><td>-</td><td>-</td><td>75.67</td><td>single query. Based on DPFL, called AWTL (2-stream).</td>
+    </tr>
+
+
+   <tr>
+    <td rowspan ="2">"Harmonious Attention Network for Person Re-Identification", Wei Li, Xiatian Zhu, Shaogang Gong, CVPR 2018.</td> <td>91.2</td> <td>-</td> <td>-</td><td>-</td><td>-</td><td>-</td><td>75.7</td><td>single query. Pixel-level attention, regional level attention and feature learning are jointly optimized.</td>
+    </tr>
+    <tr>
+        <td>93.8</td> <td>-</td> <td>-</td><td>-</td><td>-</td><td>-</td><td>82.8</td><td>multiple queries.</td>
+    </tr>
+
+    <tr>
+    <td colspan ="9" style="text-align: center"> <strong>State of the art in unsupervised Learning / domain adaptation</strong></td>  
+    </tr>
+
+
+    <tr>
+    <td rowspan ="2">"Efficient Online Local Metric Adaptation via Negative Samples for Person Re-Identification", Jiahuan Zhou, Pei Yu, Wei Tang and Ying Wu, ICCV 2017.</td> <td>40.93</td> <td>-</td> <td>-</td><td>74.06</td><td>-</td><td>-</td><td>-</td><td>Single query. LOMO is used for initialization. This method does not need any positive pairs.</td>
+    </tr>
+    <tr>
+        <td>51.45</td> <td>-</td> <td>-</td><td>80.98</td><td>-</td><td>-</td><td>-</td><td>Multiple query. </td>
+    </tr>
+
+    <tr>
+    <td rowspan ="2">"Unsupervised Person Re-identification: Clustering and Fine-tuning", Hehe Fan, Liang Zheng and Yi Yang, Arxiv 2017.</td> <td>44.7</td> <td>59.1</td> <td>65.6</td><td>71.7</td><td>-</td><td>-</td><td>20.1</td><td>Single query. An IDE model trained on DukeMTMC-reID [7] is used for initialization. Kmeans is used for label estimation.</td>
+    </tr>
+    <tr>
+        <td>41.9</td> <td>57.3</td> <td>64.3</td><td>70.5</td><td>-</td><td>-</td><td>18.0</td><td>Single query. An IDE model trained on CUHK03 is used for initialization. </td>
+    </tr>
+
+    <tr>
+    <td rowspan ="1">"Cross-view Asymmetric Metric Learning for Unsupervised Person Re-identification", Hong-Xing Yu, Ancong Wu, and Wei-Shi Zheng, ICCV 2017.</td> <td>54.5</td> <td>-</td> <td>-</td><td>-</td><td>-</td><td>-</td><td>26.3</td><td>Multiple query. JSTL is used for initialization. A clustering method is used for label estimation.</td>
+    </tr>
+
+    <tr>
+    <td rowspan ="3">"Image-Image Domain Adaptation with Preserved Self-Similarity and Domain-Dissimilarity for Person Re-identification", Weijian Deng, Liang Zheng, Guoliang Kang, Yi Yang, Qixiang Ye, Jianbin Jiao, CVPR 2018.</td> <td>51.5</td> <td>70.1</td> <td>76.8</td><td>-</td><td>-</td><td>-</td><td>22.8</td><td>Single query. DukeMTMC [7] labels are used for domain adaptation. SPGAN is an improved version of CycleGAN.</td>
+    </tr>
+    <tr>
+        <td>57.7</td> <td>75.8</td> <td>82.4</td><td>-</td><td>-</td><td>-</td><td>26.7</td><td>Single query. Local max pooling is used in addition to SPGAN.</td>
+    </tr>
+    <tr>
+        <td>57.0</td> <td>73.9</td> <td>80.3</td><td>-</td><td>-</td><td>-</td><td>27.1</td><td>Multiple query. SPGAN is used without local max pooling.</td>
+    </tr>
+
+    <tr>
+    <td rowspan ="1">"Transferable Joint Attribute-Identity Deep Learning for Unsupervised Person Re-Identification", Jingya Wang, Xiatian Zhu, Shaogang Gong, Wei Li, CVPR 2018.</td> <td>58.2</td> <td>74.8</td> <td>81.1</td><td>86.5</td><td>-</td><td>-</td><td>26.5</td><td>Single query. DukeMTMC [7] labels are used as source for unsupervised domain adaptation. Source attributes are used in addition to the ID labels.</td>
+    </tr>
+
+    <tr>
+    <td rowspan ="1">"Unsupervised Cross-dataset Person Re-identification by Transfer Learning of Spatial-Temporal Patterns", Jianming Lv, Weihang Chen, Qing Li, and Can Yang, CVPR 2018.</td> <td>60.75</td> <td>74.44</td> <td>79.25</td><td>-</td><td>-</td><td>-</td><td>-</td><td>Single query. Pedestriansâ spatio-temporal patterns in the target domain are learned, in addition to model fusion and learning to rank methods.</td>
+    </tr>
+
+    <tr>
+    <td rowspan ="1">"Unsupervised Person Re-identification by Deep Learning Tracklet Association", Minxian Li, Xiatian Zhu, and Shaogang Gong, ECCV 2018.</td> <td>63.7</td> <td>-</td> <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>Single query. Tracklets are associated across cameras to provide labels for subsequent learning.</td>
+    </tr>
+
+    <tr>
+    <td colspan ="9" style="text-align: center"> <strong>Use the dataset, but do not report results/ use different evaluation protocols</strong></td>  
+    </tr>
+    <tr>
+    <td>"Constrained Deep Metric Learning for Person Re-identification", Hailin Shi, Xiangyu Zhu, Shengcai Liao, Zhen Lei, Yang Yang, Stan Z. Li, ArXiv 2015.</td> <td>-</td> <td>-</td> <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>Used together with CUHK03 as training data for the proposed Constrained Deep Metric Learning. Test on CUHK01 and VIPeR. </td>
+    </tr>    
+    <tr>
+    <td>"An Enhanced Deep Feature Representation for Person Re-identification", Shangxuan Wu, Ying-Cong Chen, Xiang Li, An-Cong Wu, Jin-Jie You, Wei-Shi Zheng, WACV 2016.</td> <td>-</td> <td>-</td> <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>Used as training data for the proposed Feature Fusion Net. Testing is performed on other benchmarks. </td>
+    </tr>
+    <tr>
+    <td>"Semantics-Aware Deep Correspondence Structure Learning for Robust Person Re-identification", Yaqing Zhang, Xi Li, Liming Zhao, Zhongfei Zhang, IJCAI 2016.</td> <td>-</td> <td>-</td> <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>Used as training data for the proposed DCSL model. </td>
+    </tr>
+	<tr>
+    <td rowspan ="2">"Human-In-The-Loop Person Re-Identification", Hanxiao Wang, Shaogang Gong, Xiatian Zhu, Tao Xiang, ECCV 2016.</td> <td>78.0</td> <td>-</td> <td>-</td><td>-</td><td>-</td><td>86.0</td><td>-</td><td>1000 identities, 300 queries are used. Single Shot. 6 random splits.</td>
+    </tr>
+    <tr>
+        <td>33.8</td> <td>61.0</td> <td>73.6</td><td>85.3</td><td>-</td><td>-</td><td>-</td><td> 501 identities, single shot, 6 random splits. We assume 501 queries are used.</td>
+    </tr>
+
+</table>
+
+    <p class="elegant">
+    <strong>References</strong><br /><br />
+    [1]  B. Ma, Y. Su, and F. Jurie. Covariance descriptor based on bioinspired features for person re-identification and face verification. Image and Vision Computing, 2014.
+    <br />
+    [2]  F. Xiong, M. Gou, O. Camps, and M. Sznaier. Person reidentification using kernel-based metric learning methods. In ECCV, 2014.
+        <br />
+    [3]  S. Liao, Y. Hu, X. Zhu, and S. Z. Li. Person re-identification by local maximal occurrence representation and metric learning. In CVPR, 2015.<br />
+    [4]  L. Zheng, Z. Bie, Y. Sun, J. Wang, C. Su, S. Wang, and Q. Tian, MARS: A Video Benchmark for Large-Scale Person Re-identification. In ECCV, 2016.<br />
+    [5]  L. Zheng, H. Zhang, S. Sun, M. Chandraker, Yi Yang, and Q. Tian. Person re-identification in the Wild. In CVPR, 2017.
+        <br />
+	[6] Z. Zhong, L. Zheng, D. Cao, and S. Li. Re-ranking Person Re-identification with k-reciprocal Encoding. In CVPR 2017. <br />
+	[7] Z. Zheng, L. Zheng, Yi Yang, Unlabeled Samples Generated by GAN Improve the Person Re-identification Baseline in vitro. ArXiv 2017.

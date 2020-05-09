@@ -1,0 +1,90 @@
+﻿<style type="text/css">
+    *.elegant {
+        margin-left: 20px;
+        margin-right: 120px;
+        letter-spacing: 0.1px;
+        word-spacing: 0.1px;
+        line-height: 1.2em;
+        text-indent: 0px;
+        text-align: justify;
+    }
+</style> 
+
+<p class="elegant"><font color="blue" size=6><strong>Query-Adaptive Late Fusion for Image Search and Person Re-identification</strong></font></p>
+
+<p class="elegant">In this page, we provide the data and MATLAB code for our CVPR'15 paper. </p>
+
+<p class="elegant">
+If you find our code useful to your research, please kindly cite our work as,<br />
+<textarea rows="7" cols="105" readonly="true">
+@article{zheng2015query,
+  title={Query-Adaptive Late Fusion for Image Search and Person Re-identification},
+  author={Zheng, Liang and Wang, Shengjin and Tian, Lu and He, Fei and Liu, Ziqiong and Tian, Qi},
+  journal={IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year={2015}
+}
+</textarea>
+</p>
+
+<p class="elegant"><font color="black" size=4><strong>The pipeline of our method is shown below,</strong></font></p>
+
+<p class="elegant">
+<img src="./pipeline.png" width="1200"><br /><br /><br />
+</p>
+
+<br />
+<p class="elegant">
+    In our work, we fuse five features, i.e., BoW [1], HSV histogram [2], GIST [3], random projection [4], and Caffe [5]. The last four features are L2-normalized<br />
+    (1) For BoW, we use the 128-bit Hamming Embedding technique [1]. We have provided this baseline code <a href="project_baseline.html"><font color="blue"><strong>here</strong></font></a>. <br />
+    (2) For each image, we extract a 1000-dim HSV histogram as global feature. The number of bins on three channels is [20, 10, 5]. We further add a root operator and L2 normalize the feature vector [2]. <br />
+    (3) We extract a 512-dim GIST descriptor using the default parameters provided by [3]. <br />
+    (4) We extract a 1000-dim random projection feature specified in [4]. <br />
+    (5) We extract a 4096-dim CNN feature from fc6 in Caffe framework. <br />
+    Among the five features, BoW, HSV, and Caffe are generally good features, while GIST and random features are ineffective ones. 
+</p>
+<br />
+<br />
+<p class="elegant"><font color="blue" size=5><strong>Our method on Holidays dataset</strong></font></p>
+
+<p class="elegant">
+    On Holidays dataset, we achieve mAP = 87.98% by fusing the five features. <br />
+    MATLAB code is provided on Google Drive <a href="https://drive.google.com/open?id=0B6tjyrV1YrHeSF8tdHh3a1IzZWM"><font color="blue">here</font></a>, or Baidu Disk <a href="http://pan.baidu.com/s/1o69k62Q"><font color="blue">here</font></a>. The size of this package is 1.38G. <br />
+    Note that, we provide a number of 100k references of which 1000 are used for kNN search. Each reference is of length 1490. One can test the impact of different numbers of references on search accuracy.
+</p>
+ <br /> <br />
+<p class="elegant"><font color="blue" size=5><strong>Our method on Ukbench dataset</strong></font></p>
+
+<p class="elegant">
+    On Ukbench dataset, we achieve N-S = 3.84 by fusing the five features. <br />
+    MATLAB code is provided on Google Drive <a href="https://drive.google.com/open?id=0B6tjyrV1YrHedWZ2UGlWVHFiQUE"><font color="blue">here</font></a>, or Baidu Disk <a href="http://pan.baidu.com/s/1nt3hvex"><font color="blue">here</font></a>. The size of this package is 1.86G. <br />
+    Note that, we provide a number of 1491 references, and all of them are used for kNN search. Each reference is of length 10199. The reason why we do not provide 100k references is that, it would make the file too large (over 30G).  <br />
+</p>
+ <br /> <br />
+<p class="elegant"><font color="blue" size=5><strong>Our method on VIPeR dataset</strong></font></p>
+
+<p class="elegant">
+    On VIPeR dataset [7], we test five features. <br />
+    1) BoW histogram based on local Color Histogram (CH). It is 5600-dim. <br />
+    2) BoW histogram based on local Color Names (CN). It is 12000-dim. <br />
+    3) BoW histogram based on local HOG. It is 16000-dim. <br />
+    4) BoW histogram based on local LBP. It is 16000-dim. <br />
+    5) Image similarity calculated using code from [6]. <br />
+    Note that, the BoW histograms in 1) 2) 3) 4) are calculated using the method in our previous work [8], and the codes can be found at the <a href="project_reid.html"><font color="blue">project page</font></a>.
+    MATLAB code is provided on Google Drive <a href="https://drive.google.com/open?id=0B6tjyrV1YrHeUXNReW1GWmkzMGM"><font color="blue">here</font></a>, or Baidu Disk <a href="http://pan.baidu.com/s/1kT03WQ7"><font color="blue">here</font></a>. The size of this package is 434.1M. <br />
+    In the code, we test eight different feature combinations. We also draw the CMC curve for all these combinations. Specifically, when fusing all five features, we obtain rank-1 accuracy = 30.89%.<br /><br />
+	<font color="red" size=3><strong>New!</strong></font><br/>
+	We also provide the code to compute the BoW representations based on both CN and CH descriptors. This code is also used in our ICCV15 paper. Code on Baidu Pan is <a href="http://pan.baidu.com/s/1gdpWCJh"><font color="blue">here</font></a>, and Google Drive <a href="https://drive.google.com/file/d/0B8-rUzbwVRk0Y2dFS1dBaE0xd3M/view?usp=sharing"><font color="blue">here</font></a>.
+    <br /> <br /> 
+	If you have any problem, please contact me at liangzheng06@gmail.com<br /><br />
+</p>
+<p class="elegant">
+    <strong>References</strong><br /><br />
+    [1] H. Jegou et al. Hamming embedding and weak geometric consistency for large scale image search. In ECCV, 2008. <br />
+    [2] L. Zheng et al. Packing and padding: coupled multi-index for accurate image retrieval. In CVPR, 2014. <br />
+    [3] A. Oliva and A. Torralba. Modeling the shape of the scene: A holistic representation of the spatial envelope. IJCV, 42(3):145–175, 2001. <br />
+    [4] J. Wright et al. Robust face recognition via sparse representation. PAMI, 31(2):210–227, 2009.<br />
+    [5] Y. Jia. Caffe: An open source convolutional architecture for fast feature embedding. http://caffe.berkeleyvision.org/, 2013.<br />
+    [6] R. Zhao, W. Ouyang, and X. Wang. Unsupervised salience learning for person re-identification. In CVPR, 2013.<br />
+    [7] D. Gray, S. Brennan, and H. Tao. Evaluating appearance models for recognition, reacquisition, and tracking. In IEEE International workshop on performance evaluation of tracking and surveillance. Citeseer, 2007.<br />
+    [8] L. Zheng*, L. Shen*, Lu. Tian*, S. Wang, J. Bu, and Q. Tian. Person Re-identification Meets Image Search. arXiv:1502.02171, 2015. (*equal contribution.)
+    </p>

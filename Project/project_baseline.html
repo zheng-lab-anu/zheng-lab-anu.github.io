@@ -1,0 +1,99 @@
+﻿<style type="text/css">
+    *.elegant {
+        margin-left: 20px;
+        margin-right: 120px;
+        letter-spacing: 0.1px;
+        word-spacing: 0.1px;
+        line-height: 1.2em;
+        text-indent: 0px;
+        text-align: justify;
+    }
+</style> 
+
+<p class="elegant">In this page, we provide our implementation of the baseline system used in our CVPR'14 papers. If you use any part of the code in your research, please kindly cite either of the following papers.</p>
+<p class="elegant">
+<textarea rows="9" cols="88" readonly="true">
+@inproceedings{zheng2014coupled,
+  title={Packing and Padding: Coupled Multi-Index for Accurate Image Retrieval},
+  author={Zheng, Liang and Wang, Shengjin and Liu, Ziqiong and Tian, Qi},
+  booktitle={Computer Vision and Pattern Recognition (CVPR), 2014 IEEE Conference on},
+  pages={1947--1954},
+  year={2014},
+  organization={IEEE}
+}
+</textarea><textarea rows="9" cols="88" readonly="true">
+@article{zheng2014bayes,
+  title={Bayes Merging of Multiple Vocabularies for Scalable Image Retrieval},
+  author={Zheng, Liang and Wang, Shengjin and Zhou, Wengang and Tian, Qi},
+  booktitle={Computer Vision and Pattern Recognition (CVPR), 2014 IEEE Conference on},
+  pages={1963--1970},
+  year={2014},
+  organization={IEEE}
+}
+</textarea>
+</p>
+
+<p class="elegant">
+    Basically, the Bag-of-Words (BoW) model [1] is used. Then, a number of improvements including [2][3][4][5] are added to the system. In the following, a step-by-step implementation is provided.
+</p>
+
+<p class="elegant">
+    <strong>1. Codebook Generation</strong> <a href="https://drive.google.com/file/d/0B8-rUzbwVRk0SGRGU0F6Q2VIOXM/view?usp=sharing"><font color="blue">code</font></a><br />
+    Following [2], codebook is trained on an independent dataset, i.e., the Flickr60k dataset [2], which can be found on this <a href="http://lear.inrialpes.fr/people/jegou/data.php#holidays"><font color="blue">page</font></a>. The Approximate K-Means (AKM) [1] clustering is used, and codebook size is set to 20k ([6] shows that 65k is better). We use the FLANN library [7]  to perform Approximate Nearest Neighbors (ANN) computations. We provide the pre-compiled mex64-file as long as the MATLAB codes <a href="https://drive.google.com/file/d/0B8-rUzbwVRk0SGRGU0F6Q2VIOXM/view?usp=sharing"><font color="blue">here</font></a>. Note that this code should be run on 64-bit machines. 
+    <br /><br />
+    Notes:
+    <br />
+    1) It is OK to run AKM for a coupled of rounds, say, 10 to 20. The search performance remains stable. If one wants to train a large codebook such as 1M, 2-5 rounds would meet the need.
+    <br />
+    2) During AKM, the ANN precision is set to 0.70 for speed consideration. One can try if a higher precision would lead to a finer codebook, at the cost of slow AKM.
+    <br />
+    3) If you cannot download the code from google drive, <a href="http://pan.baidu.com/s/1qWuO4oO"><font color="blue">here</font></a> is an alternative link.
+    
+    </p>
+
+<p class="elegant">
+    <strong>2. Quantization</strong> <a href="https://drive.google.com/file/d/0B8-rUzbwVRk0Z0dIbndUYVVaYVU/view?usp=sharing"><font color="blue">code</font></a><br />
+    Again, the FLANN library is used in feature quantization. The code is much similar to codebook generation, except that the target precision should be higher (0.98 in the code).
+    Code in Google Drive is <a href="https://drive.google.com/file/d/0B8-rUzbwVRk0Z0dIbndUYVVaYVU/view?usp=sharing"><font color="blue">here</font></a>, and in Baidu Pan is <a href="http://pan.baidu.com/s/1dDxSLuL"><font color="blue">here</font></a>.
+</p>
+
+<p class="elegant">
+    <strong>3. Hamming Embedding </strong><a href="https://drive.google.com/file/d/0B8-rUzbwVRk0YmgzeTRiU19YMHM/view?usp=sharing"><font color="blue">code</font></a> (Bug fixed on 01/31/2015. <strong>Thank you, Kelvin, Zhun, and Yanzhang!</strong>)<br /> 
+    We implement the Hamming Embedding (HE) [2] algorithm. Two steps are involved here. <br />
+    1) Threshold training on Flickr60k data.<br />
+    2) Generation of 128-bit binary signatures given SIFT features in an image.<br />
+    Code in Google Drive is <a href="https://drive.google.com/file/d/0B8-rUzbwVRk0YmgzeTRiU19YMHM/view?usp=sharing"><font color="blue">here</font></a>, and in Baidu Pan is <a href="http://pan.baidu.com/s/1jGuw0Lo"><font color="blue">here</font></a>.
+</p>
+<p class="elegant">
+    <strong>4. Search with BoW and HE </strong><a href="https://drive.google.com/file/d/0B8-rUzbwVRk0OERzUGQwWFN4VTA/view?usp=sharing"><font color="blue">code</font></a><br />
+    We provide the code using both the BoW baseline and HE on Holidays dataset. The parameter settings are: codebook size = 20k, HE code length = 128 bits, HE parameters are 52 and 26, respectively, MA = 3. We also apply rootSIFT [3], burstiness weighting [5], avgIDF [4] to improve performance.<br /><br />
+    Results: for BoW, mAP = 49.67%; for HE, mAP = 81.75%. <br /><br />
+    Note: the SIFT descriptors are downloaded from the Holidays <a href="http://lear.inrialpes.fr/people/jegou/data.php#holidays"><font color="blue">webpage</font></a>.<br />
+    Code in Google Drive is <a href="https://drive.google.com/file/d/0B8-rUzbwVRk0OERzUGQwWFN4VTA/view?usp=sharing"><font color="blue">here</font></a>, and in Baidu Pan is <a href="http://pan.baidu.com/s/1qW8vIhe"><font color="blue">here</font></a>.
+</p>
+<p class="elegant">
+    <strong>5. Search with HSV global feature </strong><a href="https://drive.google.com/file/d/0B8-rUzbwVRk0SFFjb2xKWV94ZlU/view?usp=sharing"><font color="blue">code</font></a><br />
+    As stated in our CVPR'14 paper, in addition to the BoW representation, we use a 1000-dim rootHSV histogram as global feature, and perform global image search on Ukbench as an example. The code in Google Drive is <a href="https://drive.google.com/file/d/0B8-rUzbwVRk0SFFjb2xKWV94ZlU/view?usp=sharing"><font color="blue">here</font></a>, and in Baidu Pan is <a href="http://pan.baidu.com/s/1jG00yHo"><font color="blue">here</font></a>.<br />
+
+</p>
+
+<p class="elegant">
+    If you have any problem with the code or have any suggestion, please email me at zheng-l06@mails.tsinghua.edu.cn.
+</p>
+
+<p class="elegant">
+    <strong>References</strong><br /><br />
+    [1] J. Philbin, O. Chum, M. Isard, J. Sivic, and A. Zisserman, "Object Retrieval with Large Vocabularies and Fast Spatial Matching", In: CVPR, 2007.
+    <br />
+    [2] H. Jegou, M. Douze, and C. Schmid, "Hamming Embedding and Weak Geometric Consistency for Large Scale Image Search", In: ECCV, 2008.
+        <br />
+    [3] A. Relja and A. Zisserman, "Three Things Everyone Should Know to Improve Object Retrieval", In: CVPR, 2012.
+        <br />
+    [4] L. Zheng, S. Wang, Z. Liu, and Q. Tian, "Lp-norm IDF for Large Scale Image Search", In: CVPR, 2013.
+        <br />
+    [5] H. Jegou, M. Douze, and C. Schmid, "On the Burstiness of Visual Elements", In: CVPR, 2009.
+    <br />
+    [6] G. Tolias, Y. Avrithis, and H. Jegou, "To Aggregate or not to Aggregate: Selective Match Kernels for Image Seaerch", In: ICCV, 2013.
+    <br />
+    [7] Marius Muja and David G. Lowe, "Scalable Nearest Neighbor Algorithms for High Dimensional Data", Pattern Analysis and Machine Intelligence (PAMI), Vol. 36, 2014.
+    </p>

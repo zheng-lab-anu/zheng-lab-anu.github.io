@@ -1,0 +1,96 @@
+﻿<style type="text/css">
+    *.elegant {
+        margin-left: 20px;
+        margin-right: 120px;
+        letter-spacing: 0.1px;
+        word-spacing: 0.1px;
+        line-height: 1.2em;
+        text-indent: 0px;
+        text-align: justify;
+    }
+</style> 
+<p class="elegant">In this page, we introduce the Person Re-identification in the Wild (PRW) dataset as well as the baseline evaluation codes. </p>
+
+<p class="elegant">
+If  you use this dataset in your research, please kindly cite our work as,<br />
+<textarea rows="7" cols="115" readonly="true">
+@article{zheng2016person,
+  title={Person Re-identification in the Wild},
+  author={Zheng, Liang and Zhang, Hengheng and Sun, Shaoyan and Chandraker, Manmohan and Tian, Qi},
+  journal={arXiv preprint arXiv:1604.02531},
+  year={2016}
+}
+</textarea>
+</p>
+
+<p class="elegant"><font color="blue" size=6><strong>PRW (Person Re-identification in the Wild) Dataset</strong></font></p>
+
+<p class="elegant">
+<img src="./pipeline_prw.png" width="1100"><br /><br /><br />
+    The PRW dataset is annotated from the same video as the Market-1501 dataset, i.e., captured with 6 cameras in the summer of 2014 in Tsinghua University. We have annotated 11,816 video frames, 932 identities belonging to 34,304 bounding boxes. Same with Market-1501, we perform cross-camera retrieval, but readers should keep in mind that the identities in PRW are not corresponed to those in Market-1501. The query images are again hand-drawn bounding boxes. For each ID, multiple queries and multiple ground truths should exist, so that one can develop sophisticated multiple-query or re-ranking methods. <br /><br />
+	
+	In a nutshell, the PRW provides as input: 1) query boxes, 2) video frames. One should output a rank list of the detected bounding boxes and calculate mAP (or CMC) according to the ground truth labels.
+
+</p>
+<p class="elegant">
+<table CellSpacing=1 WIDTH=80% border=1 cellpadding="0" >
+    <tr>
+    <td>Dataset</td> <td># frame</td> <td># ID </td> <td># annotated box </td> <td># box/ID </td> <td># gallery box </td> <td># camera </td> 
+    </tr>
+    <tr>
+    <td>PRW</td> <td>11,816</td> <td>932</td> <td>34,304</td> <td>36.8</td> <td>100-500k</td> <td>6</td> 
+    </tr>
+    <tr>
+    <td>CAMPUS</td> <td>214</td> <td>74</td> <td>1,519</td> <td>20.5</td> <td>1,519</td> <td>3</td> 
+    </tr>
+    <tr>
+    <td>EPFL</td> <td>80</td> <td>30</td> <td>294</td> <td>9.8</td> <td>294</td> <td>4</td> 
+    </tr>
+    <tr>
+    <td>Market-1501</td> <td>0</td> <td>1,501</td> <td>25,259</td> <td>19.9</td> <td>19,732</td> <td>6</td> 
+    </tr>
+    <tr>
+    <td>RAiD</td> <td>0</td> <td>43</td> <td>6,920</td> <td>160.9</td> <td>6,920</td> <td>4</td> 
+    </tr>
+    <tr>
+    <td>VIPeR</td> <td>0</td> <td>632</td> <td>1,264</td> <td>2</td> <td>632</td> <td>2</td> 
+    </tr>
+    <tr>
+    <td>i-LIDS</td> <td>0</td> <td>119</td> <td>476</td> <td>2</td> <td>238</td> <td>2</td> 
+    </tr>
+    <tr>
+    <td>CUHK03</td> <td>0</td> <td>1,360</td> <td>13,164</td> <td>9.7</td> <td>~1,316</td> <td>2</td> 
+    </tr>
+</table>
+</p>
+<br />
+
+
+
+<p class="elegant"><font color="blue" size=6><strong>Baseline Codes</strong></font></p>
+
+<p class="elegant">
+    The baseline evaluation code is provided on Github. Click <a href="https://github.com/liangzheng06/PRW-baseline"><font color="blue"> here</font></a>.<br />
+	
+	For the current version, we provide the detection results using DPM detector pre-trained on the INRIA pedestrian detection dataset. Then, we extract the <a href="http://pan.baidu.com/s/1Awv86"><font color="blue">BoW descriptor</font></a> and use <a href="http://www.cbsr.ia.ac.cn/users/scliao/projects/lomo_xqda/index.html"><font color="blue">XQDA</font></a> as in metric learning. <br />
+	
+	We are actively adding baseline detectors to the project. Please stay tuned.
+
+<br /><br /><br />
+
+</p>
+<p class="elegant"><font color="blue" size=6><strong>Dataset Download</strong></font></p>
+<p class="elegant">
+ The dataset package is provided on Baidu Cloud below. All versions are shown. One will want to download the latest version.<br />
+
+ <a href="http://pan.baidu.com/s/1i5tqYbj"><font color="blue"> v2016.04.20 (2.67GB) on Baidu</font></a>, <a href="https://drive.google.com/open?id=0B6tjyrV1YrHeYnlhNnhEYTh5MUU"><font color="blue"> v2016.04.20 (2.67GB) on GoogleDrive</font></a>. ID_train/test are added. The "generate_query.m" is modified.<br />
+ <a href="http://pan.baidu.com/s/1miOsEQO"><font color="blue"> v2016.04.13 (2.67GB)</font></a>. <br /><br />
+ 
+ The package contains three folders. <br />
+ 1) "frames". There are 11,816 frames in this folder.<br /><br />
+ 2) "annotations". For each frame, we provide its annotated data. All annotated boxes are pedestrians. Each MAT file records the bounding box position within the frame and its ID. The coordinates of each box are formatted in [x, y, w, h]. The ID of each box takes the value of [1, 932] as well as -2. "-2" means that we do not know for sure the ID of the person, and is not used in the testing of person re-id, but is used in train/test of pedestrian detection (potentially used in the training of person re-identification).
+<br /><br />
+ 3) "query_box". It contains the query boxes of the PRW dataset. All togther there are 2057 queries. For naming rule, for example, in "479_c1s3_016471.jpg", "479" refers to the ID of the query, and "c1s3_016471" refers to the video frame where the query is cropped. Note that 1) the query IDs are not included in the training set, 2) the query images are not normalized (we typically use 128*64 for BoW extraction, and 224*224 for CNN feature extraction), 3)all queries are hand-drawn boxes, 4) we select one query image for each testing ID under each camera, so the maximum number of queries per ID is 6. In addition, we provide the bounding box information of each query in "query_info.txt", so one can generate the queries from the video frames through function "generate_query.m".<br /><br />
+
+ In addition, we provide the train/test split of the PRW dataset. One do not have to perform 10-fold cross validation. In detail, "frame_test.mat" and "frame_train.mat" specify the train/test frames, and "ID_test.mat" and "ID_train.mat" specify the train/test IDs. Note that a small portion of IDs used in training may appear in the testing frames, but will not appear in the testing IDs. <br /><br />
+ 

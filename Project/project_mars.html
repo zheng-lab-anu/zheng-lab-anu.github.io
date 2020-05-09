@@ -1,0 +1,105 @@
+﻿<style type="text/css">
+    *.elegant {
+        margin-left: 20px;
+        margin-right: 120px;
+        letter-spacing: 0.1px;
+        word-spacing: 0.1px;
+        line-height: 1.2em;
+        text-indent: 0px;
+        text-align: justify;
+    }
+</style> 
+<p class="elegant">In this page, we introduce the Motion Analysis and Re-identification Set (MARS) dataset as well as the baseline evaluation codes. The ECCV paper can be downloaded here <a href="../1320.pdf"><font color="blue"><strong>[PDF]</strong></font></a>.</p>
+
+<p class="elegant">
+If  you use this dataset in your research, please kindly cite our work as,<br />
+<textarea rows="7" cols="125" readonly="true">
+@proceedings{zheng2016mars,
+  title={MARS: A Video Benchmark for Large-Scale Person Re-identification},
+  author={Zheng, Liang and Bie, Zhi and Sun, Yifan and Wang, Jingdong and Su, Chi and Wang, Shengjin and Tian, Qi},
+  booktitle={European Conference on Computer Vision},
+  year={2016},
+  organization={Springer}
+}
+</textarea>
+</p>
+
+<p class="elegant"><font color="blue" size=6><strong>MARS (Motion Analysis and Re-identification Set) Dataset</strong></font></p>
+
+<p class="elegant">
+<img src="./mars.jpg" width="900"><br /><br /><br />
+MARS is an extension of the Market-1501 dataset [43]. During collection, we placed six near-synchronized cameras in the campus of Tsinghua university. There were Five 1,080*1920 HD cameras and one 640*480 SD camera. MARS consists of 1,261 different pedestrians whom are captured by at least 2 cameras.<br /><br />
+	
+Given a query tracklet, MARS aims to retrieve tracklets that contain the same ID.
+
+</p>
+<p class="elegant">
+<table CellSpacing=1 WIDTH=80% border=1 cellpadding="0" >
+    <tr>
+    <td>Dataset</td> <td>MARS</td> <td>iLIDS </td> <td>PRID</td> <td>3DPES</td> <td>ETH</td> <td>CUHK03</td> <td>VIPeR</td> <td>Market-1501</td> 
+    </tr>
+    <tr>
+    <td>#ID</td> <td>1,261</td> <td>300</td> <td>200</td> <td>200</td> <td>146</td> <td>1,360</td> <td>632</td> <td>1,501</td> 
+    </tr>
+    <tr>
+    <td>#tracklets</td> <td>20,478</td> <td>600</td> <td>400</td> <td>1,000</td> <td>146</td> <td>-</td>  <td>-</td>  <td>-</td> 
+    </tr>
+    <tr>
+    <td>#bboxes</td> <td>1,191,003</td> <td>43,800</td> <td>40k</td> <td>200k</td> <td>8,580</td> <td>13,164</td> <td>1,264</td><td>32k</td>
+    </tr>
+    <tr>
+    <td>#distractors</td> <td>3,248</td> <td>0</td> <td>0</td> <td>0</td> <td>0</td> <td>0</td> <td>0</td> <td>0</td> 
+    </tr>
+    <tr>
+    <td>#cam./ID</td> <td>6</td> <td>2</td> <td>2</td> <td>8</td> <td>1</td> <td>2</td> <td>2</td> <td>6</td> 
+    </tr>
+    <tr>
+    <td>Produced by</td> <td>DPM+GMMCP</td> <td>hand</td> <td>hand</td> <td>hand</td> <td>hand</td> <td>hand</td> <td>hand</td> <td>DPM</td> 
+    </tr>
+    <tr>
+    <td>Evaluation</td> <td>mAP+CMC</td> <td>CMC</td> <td>CMC</td> <td>CMC</td> <td>CMC</td> <td>CMC</td> <td>CMC</td> <td>mAP+R1 precision</td> 
+    </tr>
+</table>
+</p>
+<br />
+
+<p class="elegant">
+<font color="red" size=3><strong>New!</strong></font><br/>
+We have summarized current <a href="./state_of_the_art_mars.html"><font color="blue">state of the art methods</font></a> on MARS.<br/><br/>
+</p>
+
+<p class="elegant"><font color="blue" size=6><strong>Baseline Codes</strong></font></p>
+
+<p class="elegant">
+    The baseline evaluation code is provided on Github. Click <a href="https://github.com/liangzheng06/MARS-evaluation"><font color="blue"> here</font></a>.<br />
+	
+	For each bounding box, we extract the IDE feature described in [1]. We provide the extracted feature below.<br />
+ <a href="http://pan.baidu.com/s/1mhBrwMG"><font color="blue"> IDE Feature (1.92GB) on Baidu</font></a>,<br/> <a href="https://drive.google.com/folderview?id=0B6tjyrV1YrHed3BnZnNaSUs3eEE&usp=sharing"><font color="blue"> IDE Feature (1.92GB) on GoogleDrive</font></a>. 
+	
+	<br /><br />We provide the metric learning codes of XQDA [2] and KISSME [3] using the public codes.
+	
+<br /><br />
+
+</p>
+<p class="elegant"><font color="blue" size=6><strong>Dataset Download</strong></font></p>
+<p class="elegant">
+ The dataset package is provided on below. <br />
+
+ <a href="http://pan.baidu.com/s/1hswMDfu"><font color="blue"> v2016.08.09 (6.26GB) on Baidu</font></a>,<br/> <a href="https://drive.google.com/folderview?id=0B6tjyrV1YrHeMVV2UFFXQld6X1E&usp=sharing"><font color="blue"> v2016.08.09 (6.26GB) on GoogleDrive</font></a>. <br /><br />
+ 
+ The package contains 2 folders. <br />
+ 1) "bbox_train". There are 509,914 bboxes in this folder, belonging to 625 IDs and 8,298 tracklets. <br /><br />
+ 2) "bbox_test". There are 681.089 bboxes in this folder (gallery+query), belonging to 636 IDs and 12,180 tracklets. <br /><br />
+ 
+ <strong> <br/>Naming Rule of the bboxes</strong><br/>
+ In bbox "0065C1T0002F0016.jpg",  "0065" is the ID of the pedestrian. "C1" denotes the first camera (there are totally 6 cameras). "T0002" means the 2th tracklet. "F016" is the 16th frame within this tracklet. 
+ For the tracklets, their names are accumulated for each ID; but for frames, they start from "F001" in each tracklet.<br /><br />
+
+  Using the same convention as Market-1501, ID = "00-1" means junk images which do not affect retrieval accuracy; ID = "0000" means distractors, which negatively affect retrieval accuracy.
+  <br /><br />
+  If you have any comments or questions, please let me know: liangzheng06@gmail.com
+<br /><br />
+<p class="elegant"> <strong>References</strong><br /><br /> 
+[1] L. Zheng et al. Person Re-identification in the Wild. Arxiv, 2016. <br /> 
+[2] S. Liao et al. Person re-identification by local maximal occurrence representation and metric learning. CVPR 2015. <br /> 
+[3] M. Kostinger et al. Large scale metric learning from equivalence constraints. CVPR 2012.<br /></p>

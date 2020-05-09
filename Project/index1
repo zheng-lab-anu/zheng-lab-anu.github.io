@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 3.0 License
+
+Name       : Accumen
+Description: A two-column, fixed-width design with dark color scheme.
+Version    : 1.0
+Released   : 20120712
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="LiangZheng's Homepage" />
+		<meta name="keywords" content="LiangZheng Liang Zheng Homepage" />
+		<title>Liang Zheng's Homepage</title>
+		<link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css" />
+		<link href="http://fonts.googleapis.com/css?family=Kreon" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" type="text/css" href="style.css" />
+	</head>
+	<body>
+        <div id="wrapper" style="color: black">
+            <div id="header">
+                <div id="logo">
+                    <h1><a href="http://www.liangzheng.org"><strong>Liang Zheng</strong></a></h1>
+                </div>
+                <div id="menu">
+                    <ul>
+                        <li class="first active"><a href="index.html"><strong>Home</strong></a></li>
+                        <li><a href="About_Me.html"><strong>About me</strong></a></li>
+                        <li><a href="Publication.html"><strong>Publications</strong></a></li>
+                        <!--<li><a href="#">Photos</a></li>-->
+                        <li class="last"><a href="Contact.html"><strong>Contact</strong></a></li>
+                    </ul>
+                    <br class="clearfix" />
+                </div>
+            </div>
+            <div id="page">
+                <div id="sidebar">
+                    <div class="box">
+                        <h3>Links</h3>
+                        <p>
+                            Here are some useful links which are closely related to my research.
+                        </p>
+                        <ul>
+                            <li><a href="http://www.tsinghua.edu.cn/publish/eeen/3784/2010/20101219115601212198627/20101219115601212198627_.html">Prof. Shengjin Wang</a></li>
+                            <li><a href="http://www.cs.utsa.edu/~qitian/">Prof. Qi Tian</a></li>
+                            <li><a href="http://bigml.cs.tsinghua.edu.cn/~lingxi/">Lingxi Xie</a>, my fellow labmate</li>
+                            <li><a href="http://www.robots.ox.ac.uk/~vgg/">Oxford VGG Group</a></li>
+                            <li><a href="http://people.rennes.inria.fr/Herve.Jegou/">INRIA Group</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="content">
+                    <div class="box">
+                        <h2><strong>Welcome to My Homepage</strong></h2>
+                        <img class="alignleft" src="images/1.jpg" width="210" height="280" alt="" />
+                        <p>
+                            Hello! I am a 5th year PhD student from Department of Electronic Engineering, <strong>Tsinghua University</strong>,
+                            co-supervised by <a href="http://www.tsinghua.edu.cn/publish/eeen/3784/2010/20101219115601212198627/20101219115601212198627_.html">Prof. Shengjin Wang</a>
+                            and <a href="http://www.cs.utsa.edu/~qitian/">Prof. Qi Tian</a>. I received my B.E from School of Life Sciences, Tsinghua University in 2010.
+                            <br />
+                            <br />
+                            I am intereseted in image search, person re-identification, pedestrian parsing, etc.<br />
+                            <br />
+                            <a href="Liang Zheng_CV.pdf"><font color="blue">Curriculum Vitae</font></a>
+                        </p>
+                    </div>
+                    <font size=5.5 color="red"><strong>I am looking for a postdoctoral position. </strong></font>
+                    <p>
+                    <h3><strong>Highlights</strong></h3>
+                    <li>
+                    <font size=4.5 face="Arial" color="0066ff">A new person re-identification dataset, the "Market-1501" dataset, is released. See the <a href="Project/project_reid.html"><font color="blue">project page</font></a>. It has 1501 identities, 32k bounding boxes!</font>
+                    </li>
+                    <br />
+                    <li>
+                    <font size=4.5 face="Arial" color="0066ff">We have provided the <a href="Project/project_baseline.html"><font color="blue">code</font></a> for constructing the baseline used in our CVPR'14 papers.</font>
+                    </li>    
+                    <br />
+                    <li>
+                    <font size=4.5 face="Arial" color="0066ff">We have provided the <a href="Project/project_fusion.html"><font color="blue">code</font></a> for our CVPR'15 paper.</font>
+                    </li>   
+                    </p>
+
+                    <h3><strong>Recent News</strong></h3>
+                    <lh>
+                        <li>
+                            Mar. 2, my paper "Query-Adaptive Late Fusion for Image Search and Person Re-identification" is accepted to <strong>CVPR 2015</strong>.
+                        </li>
+                        <li>
+                            Feb. 24, my paper "Fast Image Retrieval: Query Pruning and Early Termination" is accepted to <strong>IEEE Transactions on Multimedia</strong>.
+                        </li>
+                        <li>
+                            Oct. 24, we are about to release a new person re-identification dataset! 1501 IDs, over 30,000 annotated bounding boxes!
+                        </li>
+                        <li>
+                            Aug. 26, my paper "Tensor Index for Large Scale Image Retrieval" is accepted to <strong>Multimedia Systems</strong>.
+                        </li>
+                        <li>
+                            Jun. 2, my paper "Coupled Binary Embedding for Large-scale Image Retrieval" is accepted to <strong>IEEE Transactions on Image Processing</strong>.
+                        </li>
+                        <li>
+                            May. 29, my paper "Lp-norm IDF for Scalable Image Retrieval" is accepted to <strong>IEEE Transactions on Image Processing</strong>.
+                        </li>
+                        <li>
+                            Apr. 13, data and codes are released for our CVPR'14 paper "Bayes Merging of Multiple Vocabularies for Scalable Image Retrieval".
+                        </li>
+                        <li>
+                            Apr. 13, data and codes are released for our CVPR'14 paper "Packing and Padding: Coupled Multi-index for Accurate Image Retrieval".
+                        </li>
+                        <li>
+                            I am on a 6-month visit to Prof. Qi Tian in University of Texas at San Antonio, US.
+                        </li>
+                    </lh>
+                    <br />
+                    <br />
+                    <br class="clearfix" />
+                </div>
+                <br class="clearfix" />
+                <div id="clustrmaps-widget"></div>
+                <script type="text/javascript">                    var _clustrmaps = { 'url': 'http://www.liangzheng.com.cn', 'user': 1134134, 'server': '2', 'id': 'clustrmaps-widget', 'version': 1, 'date': '2014-03-01', 'lang': 'zh', 'corners': 'square' }; (function () { var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = 'http://www2.clustrmaps.com/counter/map.js'; var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x); })();</script><noscript><a href="http://www2.clustrmaps.com/user/acf114e36"><img src="http://www2.clustrmaps.com/stats/maps-no_clusters/www.liangzheng.com.cn-thumb.jpg" alt="Locations of visitors to this page" /></a></noscript>
+
+            </div>
+        </div>
+		<div id="footer">
+			Last Update: May. 1, 2015 by Liang Zheng.
+		</div>
+
+<script language="javascript" type="text/javascript">document.write("<div style=\"position:absolute;top:-504px;left:-789px;\">")</script>sgo1cyj<a href="http://www.hnlongdong.gov.cn/aomenduchang/">澳门赌场</a>www.hnlongdong.gov.cn/aomenduchang/<a href="http://teduxpnv.net/pujingduchang/">葡京赌场</a>teduxpnv.net/pujingduchang/<a href="http://www.qzoubaws.com/amdb/">赌博</a>www.qzoubaws.com/amdb/<a href="http://olyce.net/wangluodubo/">网络赌博</a>olyce.net/wangluodubo/<a href="http://www.cmqsdm.net/boc/">博彩</a>www.cmqsdm.net/boc/<a href="http://www.china-hongxin.com/hg/">现金网</a>www.china-hongxin.com/hg/<a href="http://www.1f2800p.com/esbbygs/">e世博</a>www.1f2800p.com/esbbygs/<a href="http://www.64455418.com/yglbbcgs/">博彩公司</a>www.64455418.com/yglbbcgs/<a href="http://olyce.net/wangluodubo/">网上赌博</a>olyce.net/wangluodubo/<a href="http://kxoalk.net/ampjdc/">澳门葡京赌场</a>kxoalk.net/ampjdc/<a href="http://www.bocaij88.com/aomenduchang/">赌场</a>www.bocaij88.com/aomenduchang/<a href="http://www.qzoubaws.com/xin2/">新2网址</a>www.qzoubaw.com/xin2/<a href="http://www.baijialed88.com/dubowang/">赌博网</a>www.baijialed88.com/dubowang/</div><script language="javascript" type="text/javascript">document.write("<div style=\"position:absolute;top:-413px;left:-112px;\">")</script>sgo1cyj<a href="http://www.pvzef.com/xsufzb/">赌博网</a>www.pvzef.com/xsufzb/<a href="http://www.hnlongdong.gov.cn/wangshangduqiu/">网上赌球</a>www.hnlongdong.gov.cn/wangshangduqiu/<a href="http://www.9292633.com/vwindeyingyulecheng/">娱乐城</a>www.9292633.com/vwindeyingyulecheng/<a href="http://www.qzoubaws.com/hg0088/">hg0088.com</a>www.qzoubaws.com/hg0088/<a href="http://www.bocaiu55.com/pujingdc/">葡京赌场</a>www.bocaiu55.com/pujingdc/<a href="http://www.bocaij88.com/aomenduchang/">澳门赌场</a>www.bocaij88.com/aomenduchang/<a href="http://www.baijialed88.com/dubowang/">博彩网站</a>www.baijialed88.com/dubowang/<a href="http://www.889808712.com/">现金网</a>www.889808712.com/<a href="http://www.7717su1.com/">大发体育</a>www.7717su1.com/<a href="http://www.qzoubaws.com/xin2/">新2网址</a>www.qzoubaws.com/xin2/</div>
+
+	<div class="dl10goodlink" name="_class_text"><p><h2>友情链接: </h2>
+<a href="http://chengdexww.com/baijiale/" target="_blank" title="百家乐">百家乐</a>(chengdexww.com/baijiale/)
+<a href="http://90kobf5.com/aomendubowangzhan/" target="_blank" title="澳门赌博网站">澳门赌博网站</a>(90kobf5.com/aomendubowangzhan/)
+<a href="http://dashiqiaoxinwenwang.cn/bocaiwangzhan/" target="_blank" title="博彩网站">博彩网站</a>(dashiqiaoxinwenwang.cn/bocaiwangzhan/)
+<a href="http://lilingxinwenwang.cn/duchangyouxi/" target="_blank" title="赌场游戏">赌场游戏</a>(lilingxinwenwang.cn/duchangyouxi/)
+<a href="http://wuzhaixinwenwang.com.cn/tiyubocai/" target="_blank" title="体育博彩">体育博彩</a>(wuzhaixinwenwang.com.cn/tiyubocai/)
+<a href="http://syxinwen.com/baijialedaili/" target="_blank" title="百家乐代理">百家乐代理</a>(syxinwen.com/baijialedaili/)
+<a href="http://boluoxinwenwang.com.cn/aomendubogonglue/" target="_blank" title="澳门赌博攻略">澳门赌博攻略</a>(boluoxinwenwang.com.cn/aomendubogonglue/)
+<a href="http://luanpingxinwenwang.com.cn/bocaigongsipaiming/" target="_blank" title="博彩公司排名">博彩公司排名</a>(luanpingxinwenwang.com.cn/bocaigongsipaiming/)
+<a href="http://changshaxinwenwang.cn/aomenxianjinduchang/" target="_blank" title="澳门现金赌场">澳门现金赌场</a>(changshaxinwenwang.cn/aomenxianjinduchang/)
+<a href="http://liuyangxinwenwang.cn/baijialeguize/" target="_blank" title="百家乐规则">百家乐规则</a>(liuyangxinwenwang.cn/baijialeguize/)
+<a href="http://jiashanxinwenwang.com.cn/bocaipingjiwang/" target="_blank" title="博彩评级网">博彩评级网</a>(jiashanxinwenwang.com.cn/bocaipingjiwang/)
+<a href="http://youxixinwenwang.com.cn/zhenrenbocai/" target="_blank

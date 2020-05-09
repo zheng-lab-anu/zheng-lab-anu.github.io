@@ -1,0 +1,82 @@
+﻿<style type="text/css">
+    *.elegant {
+        margin-left: 20px;
+        margin-right: 120px;
+        letter-spacing: 0.1px;
+        word-spacing: 0.1px;
+        line-height: 1.2em;
+        text-indent: 0px;
+        text-align: justify;
+    }
+</style>
+<p class="elegant"><font size=6><strong>State of the art on the Market-1501+500k dataset</strong></font></p> 
+<p class="elegant">In this page, will summarize the state-of-the-art methods on Market-1501+500k dataset. We report both mAP and rank-1 accuracy under different gallery sizes. Note that this may not be the only performance measurement. Other metrics, such as retrieval time, are also important. Should you have any inquiries please let me know at liangzheng06@gmail.com.</p> 
+<p class="elegant">
+<table CellSpacing=1 WIDTH=100% border=1 cellpadding="0" >
+    <tr>
+    <td width="35%" rowspan ="2" style="text-align: center"><strong>Reference</strong></td> <td width="30%" colspan="5" style="text-align: center"><strong>Gallery size</strong></td> <td width="30%" rowspan="2" style="text-align: center"><strong>Notes</strong></td> 
+    </tr>
+    <tr>
+        <td>metric</td><td>19,732</td><td>119,732</td><td>219,732</td><td>519,732</td>
+    </tr>
+    <tr>
+    <td rowspan ="4">"Scalable person re-identification: a benchmark", Liang Zheng, Liyue Shen, Lu Tian, Shengjin Wang, Jingdong Wang, Qi Tian, ICCV 2015</td> <td>mAP</td><td>13.94</td><td>11.44</td><td>10.52</td><td>8.66</td><td rowspan ="1">BoW, Euclidean distance, single query</td> 
+    </tr>
+
+    <tr>
+        <td>mAP</td><td>13.85</td><td>10.88</td><td>9.75</td><td>7.56</td><td rowspan ="1">BoW+ANN [1], single query</td>
+    </tr>
+    <tr>
+        <td>mAP</td><td>18.38</td><td>15.95</td><td>14.88</td><td>12.60</td><td rowspan ="1">BoW, Euclidean distance, multiple query</td>
+    </tr>
+    <tr>
+        <td>mAP</td><td>18.26</td><td>15.09</td><td>13.75</td><td>10.92</td><td rowspan ="1">BoW+ANN [1], multiple query</td>
+    </tr>
+
+	
+    <tr>
+    <td rowspan ="2">"Person re-identification: Past, Present and Future", Liang Zheng, Yi Yang, Alexander Hauptmann, Arxiv 2016</td> <td>rank-1</td><td>73.69</td><td>72.15</td><td>71.55</td><td>70.67</td> <td rowspan ="2">ResNet50 baseline. The 2,048-dim feature from pool5 is used under Euclidean distance. Code can be accessed <a href="https://github.com/zhunzhong07/IDE-baseline-Market-1501"><font color="blue">here</font></a>.</td> 
+    </tr>
+    <tr>
+        <td>mAP</td><td>51.48</td><td>48.72</td><td>47.57</td><td>46.05</td>
+    </tr>
+	
+    <tr>
+    <td colspan ="9" style="text-align: center"> <strong>Current state of the art</strong></td>  
+    </tr>
+
+	
+    <tr>
+    <td rowspan ="2">"A Discriminatively Learned CNN Embedding for Person Re-identification", Zhedong Zheng, Liang Zheng and Yi Yang, Arxiv 2017.</td> <td>rank-1</td> <td>79.51</td> <td>73.78</td><td>71.50</td><td>68.26</td><td rowspan ="2">A two-stream network based on ResNet50, single query. Code is available upon request.</td>
+    </tr>
+    <tr>
+        <td>mAP</td> <td>59.87</td> <td>52.28</td><td>49.11</td><td>45.24</td>
+    </tr>	
+	
+    <tr>
+    <td rowspan ="2">"Improving Person Re-identification by Attribute and Identity Learning", Yutian Lin, Liang Zheng, Zhedong Zheng, Yu Wu and Yi Yang, Arxiv 2017.</td> <td>rank-1</td> <td>83.99</td> <td>79.89</td><td>78.20</td><td>75.44</td><td rowspan ="2">Attribute and ID classification is jointly learned. ResNet50 is used as backbone. Pool5 feature is used under Euclidean distance, single query. Attribute labels can be accessed <a href="https://vana77.github.io/"><font color="blue">here</font></a>.</td>
+    </tr>
+    <tr>
+        <td>mAP</td> <td>62.83</td> <td>56.46</td><td>53.58</td><td>49.78</td>
+    </tr>
+	
+	
+    <tr>
+    <td rowspan ="2">"In Defense of the Triplet Loss for Person Re-Identification", Alexander Hermans, Lucas Beyer and Bastian Leibe, Arxiv 2017.</td> <td>rank-1</td> <td>84.92</td> <td>79.69</td><td>77.88</td><td>74.70</td><td rowspan ="2">single query. The triplet-loss based network is fine-tuned. Image size: 256x128. The last layer in ResNet is replaced with one 1,024-dim layer and one 128-dim layer. Batch normalization.</td>
+    </tr>
+    <tr>
+        <td>mAP</td> <td>69.14</td> <td>61.93</td><td>58.74</td><td>53.63</td>
+    </tr>
+<!--     <tr>
+    <td>"Scalable Metric Learning via Weighted Approximate Rank Component Analysis", Cijo Jose, Fran&ccedil;ois Fleuret, ECCV 2016</td> <td>45.16</td> <td>68.12</td> <td>76</td><td>84</td><td>87</td> <td>Use the baseline BoW descriptor and the proposed WARCA metric learning method.</td>
+    </tr> -->
+
+
+</table>
+
+    <p class="elegant">
+    <strong>References</strong><br /><br />
+    [1]  J. Wang and S. Li. Query-driven iterated neighborhood graph search for large scale indexing. In ACM MM, 2012.
+    <br />
+
+    </p>
