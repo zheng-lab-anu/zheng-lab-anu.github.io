@@ -29,6 +29,7 @@ body {
 	background-color: white; /* White background for central content */
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow for depth */
 	min-height: 100vh; /* Ensure full height */
+	box-sizing: border-box; /* Include padding in width calculation */
 }
 
 h2,h3,h4 {
