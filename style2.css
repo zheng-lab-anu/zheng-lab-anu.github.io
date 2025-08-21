@@ -8,34 +8,71 @@ Description: A two-column, fixed-width design with dark color scheme.
 Version    : 1.0
 Released   : 20120712
 */
+
+/* Main container for centering all content */
+body {
+	font-family: arial;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	min-height: 100vh;
+	background-color: #f0f0f0; /* Light grey background for sides */
+}
+
+.main-container {
+	width: 100%;
+	max-width: 900px;
+	margin: 0 auto;
+	padding: 0 20px;
+	background-color: white; /* White background for central content */
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow for depth */
+	min-height: 100vh; /* Ensure full height */
+}
+
 h2,h3,h4 {
 	font-family: Arial;
 	color: black;
 	margin-bottom: 1em;
 }
 
-body,input {
+input {
 	font-family: arial;
 }
 
 #content {
-	padding: 0px 0 0px 0px;
-	width: 1000px;
-	margin: 0 0 0 0px;
+	padding: 20px 0;
+	width: 100%;
+	margin: 0;
+	background-color: white; /* Ensure white background */
 }
 
 #papers {
-	padding: 0px 0 0px 0px;
-	width: 1000px;
-	margin: 0 0 0 0px;
+	padding: 20px 0;
+	width: 100%;
+	margin: 0;
+	background-color: white; /* Ensure white background */
 }
 
 #header {
-	padding: 10px 0 80px 0px;;
+	padding: 20px 0 80px 0px;
 	height: 10px;
-	width: 1000px;
+	width: 100%;
+	margin: 0;
 	position: relative;
+	background-color: white; /* Ensure white background */
 }
+
+/* Ensure navigation stays on one line */
+#header table {
+	width: 100% !important;
+}
+
+/* #header span {
+	white-space: nowrap;
+	display: block;
+} */
 
 #logo {
     position: relative;
