@@ -188,36 +188,65 @@ table {
 	white-space: nowrap;
 }
 
-/* Profile photo — larger than the original 200px */
-.profile-photo {
-	width: 240px;
-	height: auto;
+/* Profile photo and a clear gap between the photo and the name/affiliation. */
+.photo-cell {
+	vertical-align: top;
+	padding-right: 24px;
 }
 
-/* Justify body paragraphs (左右对齐). Headings stay left-aligned and the
-   nav stays centered via the rules above. The profile/contact table keeps
-   its own inline text-align:left, so the address is not stretched. */
+.profile-photo {
+	width: 220px;
+	height: auto;
+	display: block;
+}
+
+.bio-cell {
+	vertical-align: top;
+	overflow-wrap: anywhere;
+}
+
+/* Justify body paragraphs (左右对齐) with hyphenation, so narrow lines don't
+   develop large word gaps. Headings stay left, nav stays centered, and the
+   profile table keeps its inline text-align:left. */
 .main-container {
 	text-align: justify;
+	-webkit-hyphens: auto;
+	hyphens: auto;
 }
 
 h2, h3, h4 {
 	text-align: left;
 }
 
-/* Mobile: make fixed-width tables fluid and tune sizes for small screens. */
+/* Mobile: fluid tables, a firm two-column profile split with a large photo,
+   and comfortable type sizing. */
 @media (max-width: 768px) {
 	body {
-		font-size: 17px;
+		font-size: 16px;
+		line-height: 1.55;
 	}
 
 	.main-container {
-		padding: 0 14px;
+		padding: 0 16px;
 	}
 
-	/* Fixed-width layout tables become full-width and stack naturally */
+	/* Fixed-width layout tables become full-width */
 	table[width] {
 		width: 100% !important;
+	}
+
+	/* Fixed layout so the photo column keeps its width and the photo is large */
+	.profile-table {
+		table-layout: fixed;
+	}
+
+	.photo-cell {
+		width: 42vw;
+		padding-right: 18px;
+	}
+
+	.profile-photo {
+		width: 100%;
 	}
 
 	#header a {
@@ -226,27 +255,18 @@ h2, h3, h4 {
 	}
 
 	h2 {
-		font-size: 1.4em;
-	}
-
-	/* Photo scales with the screen width on phones */
-	.profile-photo {
-		width: 38vw;
+		font-size: 1.35em;
 	}
 }
 
 @media (max-width: 480px) {
-	body {
-		font-size: 17px;
+	.photo-cell {
+		width: 44vw;
 	}
 
 	#header a {
 		font-size: 17px;
 		margin: 5px 9px;
-	}
-
-	.profile-photo {
-		width: 40vw;
 	}
 }
 
