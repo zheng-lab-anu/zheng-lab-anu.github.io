@@ -152,3 +152,24 @@ input {
 	border-top: 0;
 }
 
+/* Mobile: enlarge base font size for readability on small screens */
+@media (max-width: 768px) {
+	body {
+		font-size: 18px;
+	}
+
+	#menu a {
+		font-size: 1.4em;
+	}
+}
+
+@media (max-width: 480px) {
+	body {
+		font-size: 20px;
+	}
+
+	#menu a {
+		font-size: 1.5em;
+	}
+}
+
