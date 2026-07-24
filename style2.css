@@ -152,10 +152,38 @@ input {
 	border-top: 0;
 }
 
-/* Mobile: enlarge base font size for readability on small screens */
+/* Prevent fixed-width elements (e.g. width="700" tables and width="200"
+   images) from forcing the page wider than the screen. This is what makes
+   the content squeeze to the left with empty space on the right on phones. */
+html, body {
+	max-width: 100%;
+	overflow-x: hidden;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+table {
+	max-width: 100%;
+	table-layout: auto;
+}
+
+/* Mobile: make fixed-width tables fluid and enlarge base font size
+   for readability on small screens. */
 @media (max-width: 768px) {
 	body {
 		font-size: 18px;
+	}
+
+	.main-container {
+		padding: 0 12px;
+	}
+
+	/* Fixed-width layout tables become full-width and stack naturally */
+	table[width] {
+		width: 100% !important;
 	}
 
 	#menu a {
