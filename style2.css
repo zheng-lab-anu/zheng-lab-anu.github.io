@@ -170,15 +170,49 @@ table {
 	table-layout: auto;
 }
 
-/* Mobile: make fixed-width tables fluid and enlarge base font size
-   for readability on small screens. */
+/* Navigation bar: centered with even spacing so it wraps neatly.
+   font-size:0 on the wrapper collapses the many &nbsp; separators in the
+   markup; each link gets a real size and uniform margins instead. */
+#header table {
+	text-align: center !important;
+}
+
+#header span {
+	font-size: 0 !important;
+}
+
+#header a {
+	font-size: 20px;
+	display: inline-block;
+	margin: 8px 16px;
+	white-space: nowrap;
+}
+
+/* Profile photo — larger than the original 200px */
+.profile-photo {
+	width: 240px;
+	height: auto;
+}
+
+/* Justify body paragraphs (左右对齐). Headings stay left-aligned and the
+   nav stays centered via the rules above. The profile/contact table keeps
+   its own inline text-align:left, so the address is not stretched. */
+.main-container {
+	text-align: justify;
+}
+
+h2, h3, h4 {
+	text-align: left;
+}
+
+/* Mobile: make fixed-width tables fluid and tune sizes for small screens. */
 @media (max-width: 768px) {
 	body {
-		font-size: 18px;
+		font-size: 17px;
 	}
 
 	.main-container {
-		padding: 0 12px;
+		padding: 0 14px;
 	}
 
 	/* Fixed-width layout tables become full-width and stack naturally */
@@ -186,18 +220,33 @@ table {
 		width: 100% !important;
 	}
 
-	#menu a {
+	#header a {
+		font-size: 18px;
+		margin: 6px 11px;
+	}
+
+	h2 {
 		font-size: 1.4em;
+	}
+
+	/* Photo scales with the screen width on phones */
+	.profile-photo {
+		width: 38vw;
 	}
 }
 
 @media (max-width: 480px) {
 	body {
-		font-size: 20px;
+		font-size: 17px;
 	}
 
-	#menu a {
-		font-size: 1.5em;
+	#header a {
+		font-size: 17px;
+		margin: 5px 9px;
+	}
+
+	.profile-photo {
+		width: 40vw;
 	}
 }
 
