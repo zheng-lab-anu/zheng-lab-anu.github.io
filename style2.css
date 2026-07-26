@@ -230,6 +230,13 @@ a font {
 	text-align: left;
 }
 
+/* Desktop only: nudge the name/title/email block up slightly. */
+@media (min-width: 769px) {
+	.bio-cell {
+		transform: translateY(-14px);
+	}
+}
+
 /* Name + title/email block, styled after Kaiming He's homepage: a large bold
    name (with Chinese name), then well-spaced affiliation/email lines. */
 .profile-name {
