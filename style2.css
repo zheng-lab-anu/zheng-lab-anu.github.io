@@ -233,7 +233,7 @@ a font {
 /* Desktop only: nudge the name/title/email block up slightly. */
 @media (min-width: 769px) {
 	.bio-cell {
-		transform: translateY(-14px);
+		transform: translateY(-28px);
 	}
 }
 
